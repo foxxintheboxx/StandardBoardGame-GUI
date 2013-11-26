@@ -1,0 +1,65 @@
+package jump61;
+
+import static jump61.Color.*;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+/** Unit tests of Moves during a game.
+*  @author Ian Fox
+*/
+public class MoveTest {
+    @Test
+    public void moveBasics() {
+        Game tst0 = new Game(null);
+        tst0.makeMove(2, 2);
+        tst0.makeMove(1, 2);
+        tst0.makeMove(2, 2);
+        tst0.makeMove(6, 6);
+        tst0.makeMove(5, 5);
+        assertEquals("red has", 2, tst0.getBoard().numOfColor(RED));
+    }
+
+    @Test
+    public void manualTest() {
+        Game tst1 = new Game(null);
+        tst1.setManual(BLUE);
+        tst1.makeMove(2, 2);
+        tst1.makeMove(1, 2);
+        tst1.makeMove(2, 2);
+        tst1.makeMove(6, 6);
+        tst1.makeMove(5, 5);
+        assertEquals("red has", 2, tst1.getBoard().numOfColor(RED));
+        assertEquals("blue has", 2, tst1.getBoard().numOfColor(BLUE));
+    }
+    @Test
+    public void jumpTest() {
+        Game tst2 = new Game(null);
+        tst2.setManual(BLUE);
+        tst2.setSize(3);
+        tst2.makeMove(2, 2);
+        tst2.makeMove(1, 2);
+        tst2.makeMove(2, 2);
+        tst2.makeMove(1, 2);
+        tst2.makeMove(2, 2);
+        assertEquals("red has", 1, tst2.getBoard().numOfColor(RED));
+        assertEquals("blue has", 1, tst2.getBoard().numOfColor(BLUE));
+    }
+
+    @Test
+    public void movesAfterWin() {
+        Game tst2 = new Game(null);
+        tst2.setManual(BLUE);
+        tst2.setSize(2);
+        tst2.makeMove(1, 2);
+        tst2.makeMove(2, 2);
+        tst2.makeMove(1, 2);
+        tst2.makeMove(2, 2);
+        tst2.makeMove(1, 2);
+        tst2.makeMove(2, 2);
+        tst2.makeMove(1, 2);
+        assertEquals("red has", 4, tst2.getBoard().numOfColor(RED));
+        assertEquals("blue has", 0, tst2.getBoard().numOfColor(BLUE));
+    }
+
+}

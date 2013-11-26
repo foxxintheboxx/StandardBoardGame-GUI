@@ -1,0 +1,37 @@
+package jump61;
+
+import static jump61.Color.*;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+/** Unit tests of Moves during a game.
+*  @author Ian Fox
+*/
+public class SquareTest {
+    @Test
+    public void checkBasics() {
+        Squaree sq = new Squaree();
+        sq.changeColor(RED);
+        sq.addSpot(5);
+        sq.subSpot(3);
+        sq.addSpot(2);
+        sq.subSpot(1);
+        assertEquals("square has", 3, sq.getSpots());
+    }
+
+    @Test
+    public void copyTest() {
+        Squaree sq = new Squaree();
+        sq.changeColor(RED);
+        sq.addSpot(5);
+        sq.subSpot(3);
+        sq.addSpot(2);
+        sq.subSpot(1);
+        Squaree sq2 = sq.copy();
+        assertEquals("square has", 3, sq2.getSpots());
+        assertEquals("square is", RED, sq.getColor());
+        assertEquals("square should not equals square2",
+            false, sq == sq2);
+    }
+}

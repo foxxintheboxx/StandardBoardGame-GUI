@@ -1,0 +1,29 @@
+#: 	A comment; this has no effect
+start:  Start playing the game from the
+	current position. This has no effect if already.
+	playing.
+
+quit:	exits the program.
+
+auto P: Stops the current game until the
+	next START command and causes player P to be
+	played by an automated player (an AI) on subsequent
+	moves. The value P must be "red" or blue. Initially,
+	Blue is an automated player.
+
+manual  P: Stops the current game until the next start
+	command and cause player P to take moves from the terminal
+size N: stops any current game and clears the current config
+	-uration and sets the size of the board to N squares. Initially,
+	N = 6.
+
+move N: stop any current game, set the number of the next move
+	You usually use this command after setting up an initial postion
+	Initially the number of the next move is 1
+
+dump: 	prints out the current board
+
+seed N: sets the random seed to N a long integer
+        + "help: a brief summary of commands
+set 
+R C N P: sets the current board and the square R, C with N spots and the color P.

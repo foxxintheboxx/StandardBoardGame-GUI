@@ -1,0 +1,4 @@
+To run the GUI, compile the folder. Then enter: java jump61/Main --dislpay.
+The GUI is pretty much a fully functional simulation of the terminal version.
+Otherwise, you will enter a terminal game. The terminal game is pretty basic.
+Look at help for the list of commands that you can possible enter.

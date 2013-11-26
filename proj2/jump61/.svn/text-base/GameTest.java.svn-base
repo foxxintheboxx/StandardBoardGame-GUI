@@ -1,0 +1,54 @@
+package jump61;
+
+import static jump61.Color.*;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+/** Unit tests of Game.
+*  @author Ian Fox
+*/
+public class GameTest {
+    @Test
+    public void checkWin() {
+        Game tst0 = new Game(null);
+        tst0.setSize(4);
+        tst0.restartGame();
+        assertEquals("game has been restarted", tst0.isPlaying(), true);
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                tst0.setSpots(i + 1, j + 1, 1, RED);
+            }
+        }
+        assertEquals("Red should win", tst0.getBoard().getWinner(), RED);
+    }
+    @Test
+    public void checkExCmmd() {
+        Game tst1 = new Game(null);
+        String[] l = {"start"};
+        tst1.executeCommand(l[0]);
+        String[] l2 = {"set", "6", "6", "2", "r"};
+        assertEquals("game has been started", tst1.isPlaying(), true);
+        tst1.setLine(l2);
+        tst1.setter();
+        assertEquals("set color of '6' '6' to red",
+            tst1.getBoard().getBoard()[5][5].getColor()
+            , RED);
+        assertEquals("set placed red on '6' '6'",
+            tst1.getBoard().getBoard()[5][5].getSpots()
+            , 2);
+    }
+
+    @Test
+    public void setPlayers() {
+        Game tst2 = new Game(null);
+        String[] l = {"blue"};
+        tst2.setManual(BLUE);
+        assertEquals("two manuals players:", tst2.getBlue().human(), true);
+        assertEquals("two manuals players:", tst2.getRed().human(), true);
+        tst2.setAuto(RED);
+        tst2.setAuto(BLUE);
+        assertEquals("two manuals players:", tst2.getRed().human(), false);
+        assertEquals("two manuals players:", tst2.getRed().human(), false);
+    }
+}
