@@ -1,6 +1,6 @@
 Version 2.0 7/29/2013
 
-This directory contains a skeleton for CS61B Project 2.
+This directory contains a skeleton for the primitive board game jump
 
 Although some of what's in here might seem mysterious to you, try to 
 understand what it's all for.  Don't be afraid to ask us about it.
@@ -20,8 +20,10 @@ Makefile                For those of you using the standard Unix tool chain
                         comments in it for the targets provided.  Those of
                         you using Eclipse won't need it.
 
-
 jump61/
+    Display	      The implementation of the GUI.
+    
+    AutoBlue 	       The implementation of the auto JCheckbox; it holds the 				       implementation of multiple threads so that AI can play each other. 
 
     Makefile           A simple makefile that delegates all requests to
                        the outer directory's makefile.
